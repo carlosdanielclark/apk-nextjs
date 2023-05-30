@@ -22,7 +22,6 @@
 .Form {
   background-color: white;
   box-shadow: 1px 5px 10px rgba(32, 32, 32, 0.563);
-  height: 300px;
   width: 400px;
   border-radius: 15px;
 }

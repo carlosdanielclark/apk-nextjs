@@ -28,6 +28,7 @@ const change_rate = [
 const Form = () => {
     const [ selectBase, setSelectBase ] = useState('Select Base');
     const [ selectRate, setSelectRate ] = useState('Select Rate');
+    const [ valueRate, setValueRate ] = useState(0);
     const [ result, setResult ] = useState(0);
 
     const [ values, handleInputChange ] = useForm({
@@ -43,61 +44,105 @@ const Form = () => {
     }
 
     const handleRate = async (e) => {
-        e.preventDefault;
+        e.preventDefault();
         const data_rate = e.target.innerHTML;
         setSelectRate(data_rate);
         const currencyValue = await GetCurrencyRate(data_rate);
-        setResult(base * currencyValue.rates[`${data_rate}`]);
-        
+        setValueRate(currencyValue.rates[`${data_rate}`]);
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const value1 = e.target.base.value; 
+        const value2 = e.target.rate.value; 
+        console.log(value1, value2);      
+        setResult(value1 * value2);
+
+      };
     return (
        <div>
             { (selectBase!='EUR' || base == 0)
-                ? <h3 className='c-red mb-8'> Drag the arrow to dropdown buttons and insert amount</h3>
+                ? <h3 className='c-red mb-2'> Drag the arrow to dropdown buttons and insert amount</h3>
                 : <></>
             }
             <div className={style.Container}>
-                <h2>From</h2>
-                <div className={style.Content}>
-                    
-                    <div class={ style.dropdown }>
-                        <span> { selectBase } </span>
-                        <div class={ style.dropdown_content }>
-                            {
-                                change_base.map( (c_base)=>{
-                                    return <p onClick={ handleBase }>{c_base}</p>
-                                } )     
-                            }
-                        </div>
-                    </div>
-
-                    <input 
-                    className={style.Input}                 
-                    type="number" 
-                    name='base'
-                    placeholder="Amount"
-                    value={ base }
-                    onChange={handleInputChange} 
-                    />
-                </div>
-                <h2> to </h2>
-                <div className={ style.Content }>
-
-                    <div class={ style.dropdown }>
-                        <span> { selectRate } </span>
-                        <div class={ style.dropdown_content }>
-                            {
-                                change_rate.map( (c_rate)=>{
-                                    return <p onClick={ handleRate }>{c_rate}</p>
-                                } )     
-                            }
-                        </div>
-                    </div>
-
-                    <h4 className="ml-8 xl-text"> { result } </h4>
-                </div>
                 
+                <form 
+                    className={ style.Form }
+                    onSubmit={ handleSubmit }
+                >   
+                    <div className={style.Form_Container}>
+                        <h2>From</h2>
+                        <div className={ style.Content }>
+                            
+                            <div class={ style.dropdown }>
+                                <span> { selectBase } </span>
+                                <div class={ style.dropdown_content }>
+                                    {
+                                        change_base.map( ( c_base )=>{
+                                            return <p onClick={ handleBase }>{ c_base }</p>
+                                        } )     
+                                    }
+                                </div>
+                            </div>
+
+                            <input 
+                            className={ style.Input }                 
+                            type="number" 
+                            name='base'
+                            placeholder="Amount"
+                            value={ base }
+                            onChange={ handleInputChange } 
+                            />
+                        </div>
+                        <h2> to </h2>
+                        <div className={ style.Content }>
+
+                            <div class={ style.dropdown }>
+                                <span> { selectRate } </span>
+                                <div id='change_rate' class={ style.dropdown_content }>
+                                    {
+                                        change_rate.map( (c_rate)=>{
+                                            return <p onClick={ handleRate }>{ c_rate }</p>
+                                        } )     
+                                    }
+                                </div>
+                            </div>
+                            <input 
+                            className={ style.Input }                 
+                            type="number" 
+                            name='rate'
+                            placeholder="Rate"
+                            value={ valueRate }
+                            disabled={ true } 
+                            />
+                            
+                        </div>
+                    </div>
+
+                    <div className={ style.Form_Column }>
+
+                        <div className='display-center'>
+                            <button className='button background-teal c-white' >
+                                Generate
+                            </button>
+                        </div>
+
+                        
+                        <div className={ style.Form_Column }>
+                            <h3 className='mr-4 ml-4'>Result</h3>
+                            <input 
+                                className={ style.Input }                                             
+                                placeholder="Rate"
+                                value={ ' $ '+result }
+                                disabled={ true } 
+                            />
+                        </div>
+          
+                    </div>
+                    
+
+                </form>
                 
             </div>
         </div>
