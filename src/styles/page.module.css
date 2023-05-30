@@ -1,0 +1,29 @@
+/* Aplicacion */
+
+.App {
+  height: 100%;
+  width: 100%;
+  background-color: cornflowerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+/* Formulario */
+
+.Form {
+  background-color: white;
+  box-shadow: 1px 5px 10px rgba(32, 32, 32, 0.563);
+  height: 300px;
+  width: 400px;
+  border-radius: 15px;
+}
+
