@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tests in "Form" > Must show correctly 1`] = `
+<div
+  className="_Title_63b601"
+>
+  <label>
+    Currency Exchange!
+  </label>
+</div>
+`;
+
+exports[`Tests in "FormTitle" > Must show correctly 1`] = `
+<div
+  className="_Title_63b601"
+>
+  <label>
+    Currency Exchange!
+  </label>
+</div>
+`;
+
+exports[`Tests in "FormTitle" > Snapshot of the html 1`] = `
+<div
+  className="_Title_63b601"
+>
+  <label>
+    Currency Exchange!
+  </label>
+</div>
+`;
