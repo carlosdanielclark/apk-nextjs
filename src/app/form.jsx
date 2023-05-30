@@ -87,6 +87,7 @@ const Form = () => {
                             </div>
 
                             <input 
+                            id='input_base'
                             className={ style.Input }                 
                             type="number" 
                             name='base'

@@ -1,4 +1,3 @@
-'use client'
 import style from "../styles/page.module.css";
 import FormTitle from "./title";
 import Form from "./form";
