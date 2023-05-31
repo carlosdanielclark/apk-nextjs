@@ -63,7 +63,8 @@ const Form = () => {
        <div>
             { (selectBase!='EUR' || base == 0)
                 ? <h3 className='c-red mb-2'> Drag the arrow to dropdown buttons and insert amount</h3>
-                : <></>
+
+                : <h3 className='c-teal mb-2 ml-10'> Field successful</h3>
             }
             <div className={style.Container}>
                 
@@ -109,6 +110,7 @@ const Form = () => {
                                     }
                                 </div>
                             </div>
+
                             <input 
                             className={ style.Input }                 
                             type="number" 
