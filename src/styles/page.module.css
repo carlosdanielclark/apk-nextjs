@@ -26,3 +26,8 @@
   border-radius: 15px;
 }
 
+.BoxPokemon{
+  position: absolute;
+  left: 98%;
+  top: -0%;
+}

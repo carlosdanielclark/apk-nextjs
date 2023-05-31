@@ -1,0 +1,54 @@
+.Content{
+  display: flex;
+  width: 100%;
+}
+
+.Messagge{
+  color: black;
+  margin-top: -18px;
+  margin-left: 8px;
+}
+
+.Messagge h4{
+  margin-top: -10px;
+}
+/********* DROPDOWN **********/
+.dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    box-shadow: 1px 5px 10px rgba(32, 32, 32, 0.563);
+    border-radius: 4px;
+    height: 25px;
+    text-align: center;
+    background-color: #009688;
+    color: white;
+  }
+  
+  .dropdown_content {
+    display: none;
+    position: absolute;
+    right: 0%;
+    top: -175px;
+    color: black;
+    background-color: #e0e0e0;
+    min-width: 40px;
+    max-height: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    cursor: pointer;
+    overflow-y: scroll;
+  }
+  
+  .dropdown:hover .dropdown_content {
+    display: block;
+  }
+  
+  .dropdown_content :hover{
+    color: lightseagreen;
+  }
+  
+  .dropdown_content :target{
+    color: red;
+  }
