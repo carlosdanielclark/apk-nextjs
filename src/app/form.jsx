@@ -79,8 +79,8 @@ const Form = () => {
                                 <span> { selectBase } </span>
                                 <div class={ style.dropdown_content }>
                                     {
-                                        change_base.map( ( c_base )=>{
-                                            return <p onClick={ handleBase }>{ c_base }</p>
+                                        change_base.map( ( c_base, i )=>{
+                                            return <p onClick={ handleBase } key={ i } >{ c_base }</p>
                                         } )     
                                     }
                                 </div>
@@ -103,8 +103,8 @@ const Form = () => {
                                 <span> { selectRate } </span>
                                 <div id='change_rate' class={ style.dropdown_content }>
                                     {
-                                        change_rate.map( (c_rate)=>{
-                                            return <p onClick={ handleRate }>{ c_rate }</p>
+                                        change_rate.map( (c_rate, i)=>{
+                                            return <p onClick={ handleRate } key={ i }>{ c_rate }</p>
                                         } )     
                                     }
                                 </div>
